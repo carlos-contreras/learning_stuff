@@ -3,8 +3,17 @@ class Game
   attr_reader :player1, :player2, :which_turn, :turn_counter, :winner
 
   def initialize(player1='Player1', player2='Player2')
-    @player1 = Player.new player1
-    @player2 = Player.new player2
+    if player1 == ""
+      @player1 = Player.new "Player1"
+    else
+      @player1 = Player.new player1
+    end
+
+    if player2 == ""
+      @player2 = Player.new "Player2"
+    else
+      @player2 = Player.new player2
+    end
     @turn_counter = 0
     @winner = nil
   end
@@ -22,6 +31,7 @@ class Game
     elsif @player2.wall_health == 0
       @winner = @player1
     end
+    bullet
   end
 
   def who_move?
@@ -32,8 +42,8 @@ class Game
     end
   end
 
-  def to_s
-    "#{@player1.name}: #{@player1.wall_health}, #{@player2.name}: #{@player2.wall_health}"
+  def status
+    "#{@player1.status}, #{@player2.status}"
   end
 
 end

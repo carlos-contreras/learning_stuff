@@ -1,7 +1,5 @@
 class Bullet
 
-  attr_reader :points, :bonus
-
   def self.generate_bullet
     rand(1..5) + self.bonus_calc
   end

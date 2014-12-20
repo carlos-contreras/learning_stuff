@@ -1,26 +1,31 @@
-<h1> Ranking </h1>
+<% if notice %>
+  <div class="alert alert-success" role="alert"> <%= flash[:notice] %> </div>
+<% end %>
+<% if flash[:alert] %> 
+  <div class="alert alert-danger" role="alert"> <%= flash[:alert] %> </div>
+<% end %>
+
+<h1> Game Ranking </h1>
 
 <% unless @ranking_table.empty? %>
 
-  <table>
+  <table class="table table-striped">
   <tr>
     <th> Player1 </th>
     <th> Player2 </th>
     <th> Winner </th>
-    <th> Winner reamainig points </th>
+    <th> Reamainig wall </th>
   </tr>
 
   <% @ranking_table.each do |row| %>
-    <tr>
+    <tr> 
       <td> <%= row.player1 %> </td>
       <td> <%= row.player2 %> </td>
-      <td> <%= row.winner %> </td>
-      <td> <%= row.winner_reamaining_points %> </td>
+      <td> <span class="label label-success"> <%=row.winner%> </span></td>
+      <td> <span class="label label-info"> <%= row.winner_reamaining_points %> </span></td>
     </tr>
   <% end %>
   </table>
 <% end %> 
 
-<br>
-
-<%= link_to 'New game', controller: 'games', action: 'new' %>
+<%= link_to 'New game', {controller: 'games', action: 'new'}, :class => "btn btn-sm btn-primary" %>

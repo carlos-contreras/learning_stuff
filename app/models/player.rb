@@ -11,4 +11,8 @@ class Player
     @wall_health-=points
     @wall_health = 0 unless @wall_health > 0
   end
+
+  def status
+    "#{self.name}: #{self.wall_health}"
+  end
 end

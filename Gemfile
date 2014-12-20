@@ -38,6 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development, :test do
-  gem 'rspec-rails'
-end
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
+gem 'rspec-rails',    group: [:development, :test]
+

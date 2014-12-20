@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Ranking, :type => :model do
-  it "do is of Ranking class" do  
+  it "return a object of type Ranking" do  
     @ranking = Ranking.new
     expect(@ranking).to be_kind_of(Ranking)
   end

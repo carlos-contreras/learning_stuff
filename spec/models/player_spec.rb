@@ -6,7 +6,7 @@ RSpec.describe Player do
     @player = Player.new "Name"
   end
   it 'respond to some methods' do
-    expect(@player).to respond_to(:name, :wall_health, :reduce_wall)
+    expect(@player).to respond_to(:name, :wall_health, :reduce_wall, :status)
   end
 
   describe '#new' do
@@ -40,7 +40,7 @@ RSpec.describe Player do
 
   describe '#take_damage' do
     context 'When the result is greater that zero' do
-      it 'take a single parameter and decrement the wall health' do
+      it 'take a single parameter and decrement the wall health to 80' do
         @player.reduce_wall(20)
         expect(@player.wall_health).to eq(80) 
       end
@@ -56,6 +56,12 @@ RSpec.describe Player do
         @player.reduce_wall(120)
         expect(@player.wall_health).to eq(0) 
       end
+    end
+  end
+
+  describe '#status' do
+    it 'returns the status of the player on a specific format' do
+      expect(@player.status).to eq("#{@player.name}: #{@player.wall_health}")
     end
   end
 end

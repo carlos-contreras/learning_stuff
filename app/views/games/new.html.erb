@@ -5,13 +5,14 @@
   <div class="alert alert-danger" role="alert"> <%= flash[:alert] %> </div>
 <% end %>
 
-<h1>Wellcome! this is the Object Cannon Game.</h1>
-
+<h1>Players's names.</h1>
+<hr>
 <%= form_tag('/games', method: :post) do%>
-  <%= label_tag :player1 %>
+  <%= label_tag :player1, " Player1's name:" %>
   <%= text_field_tag :player1 %>
-  <br>
-  <%= label_tag :player2 %>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <%= label_tag :player2, " Player2's name:"%>
   <%= text_field_tag :player2 %>
-  <%= submit_tag('Play') %>
+  <hr>
+  <%= submit_tag('Play', :class => "btn btn-sm btn-primary") %>
 <% end %>

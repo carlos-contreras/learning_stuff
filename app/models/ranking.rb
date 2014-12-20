@@ -12,4 +12,8 @@
 #
 
 class Ranking < ActiveRecord::Base
+  validates :player1, presence: true
+  validates :player2, presence: true
+  validates :winner, presence: true
+  validates :winner_reamaining_points, presence: true
 end

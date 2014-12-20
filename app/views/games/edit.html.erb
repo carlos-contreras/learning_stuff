@@ -1,8 +1,16 @@
-<h1> Move <h1>
-<h3> <%= @game.to_s %> </h3>
-<h3> Turn: <%= @game.who_move? %> </h3>
+<% if notice %>
+  <div class="alert alert-success" role="alert"> <%= flash[:notice] %> </div>
+<% end %>
+<% if flash[:alert] %> 
+  <div class="alert alert-danger" role="alert"> <%= flash[:alert] %> </div>
+<% end %>
 
+<h1> Move #<%= @game.turn_counter %> <h1>
+<h3> Current status: [ <%= @game.status %> ] </h3>
+<h3> This is [ <%= @game.who_move? %> ] turn. </h3>
+
+<hr>
 
 <%= form_tag('/games/1', method: :patch) do %>
-  <%= submit_tag('Move') %>
+  <%= submit_tag('Move', :class => "btn btn-sm btn-primary") %>
 <% end %>
