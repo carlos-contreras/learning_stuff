@@ -7,7 +7,7 @@ RSpec.describe Game do
   end
 
   it 'respond to some methods' do
-    expect(@game).to respond_to(:player1, :player2, :which_turn, :turn_counter)
+    expect(@game).to respond_to(:player1, :player2, :which_turn)
   end
 
   describe '#new' do
@@ -23,6 +23,9 @@ RSpec.describe Game do
     it 'Set the turns counter to zero' do
       expect(@game.turn_counter).to eq(0)
     end
+  end
+
+  describe '#move' do
   end
 
 end

@@ -1,0 +1,26 @@
+<h1> Ranking </h1>
+
+<% unless @ranking_table.empty? %>
+
+  <table>
+  <tr>
+    <th> Player1 </th>
+    <th> Player2 </th>
+    <th> Winner </th>
+    <th> Winner reamainig points </th>
+  </tr>
+
+  <% @ranking_table.each do |row| %>
+    <tr>
+      <td> <%= row.player1 %> </td>
+      <td> <%= row.player2 %> </td>
+      <td> <%= row.winner %> </td>
+      <td> <%= row.winner_reamaining_points %> </td>
+    </tr>
+  <% end %>
+  </table>
+<% end %> 
+
+<br>
+
+<%= link_to 'New game', controller: 'games', action: 'new' %>

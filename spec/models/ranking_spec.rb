@@ -1,5 +1,21 @@
+# == Schema Information
+#
+# Table name: rankings
+#
+#  id                       :integer          not null, primary key
+#  player1                  :string(255)
+#  player2                  :string(255)
+#  winner                   :string(255)
+#  winner_reamaining_points :integer
+#  created_at               :datetime
+#  updated_at               :datetime
+#
+
 require 'rails_helper'
 
 RSpec.describe Ranking, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "do is of Ranking class" do  
+    @ranking = Ranking.new
+    expect(@ranking).to be_kind_of(Ranking)
+  end
 end

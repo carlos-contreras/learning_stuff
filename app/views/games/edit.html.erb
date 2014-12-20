@@ -1,0 +1,8 @@
+<h1> Move <h1>
+<h3> <%= @game.to_s %> </h3>
+<h3> Turn: <%= @game.who_move? %> </h3>
+
+
+<%= form_tag('/games/1', method: :patch) do %>
+  <%= submit_tag('Move') %>
+<% end %>
