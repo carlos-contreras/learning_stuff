@@ -5,8 +5,10 @@ ruby "2.1.5"
 gem 'rails', '4.1.8'
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+group :assets do
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '~> 4.0.3'
+end
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -42,4 +44,5 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 gem 'rspec-rails',    group: [:development, :test]
+gem 'rails_12factor', group: :production
 
