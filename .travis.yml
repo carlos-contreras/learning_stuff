@@ -1,5 +1,9 @@
 language: ruby
 rvm:
   - 2.1.5
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate test
 before_script:
-  - "rake db:schema:load"
+  - psql -c 'create database learning_stuff_test' -U postgres
