@@ -16,4 +16,10 @@ class Ranking < ActiveRecord::Base
   validates :player2, presence: true
   validates :winner, presence: true
   validates :winner_reamaining_points, presence: true
+
+  validate :winner_was_player
+
+  def winner_was_player
+    errors.add(:winner, "is not a player") unless (winner == player1) || (winner == player2)
+  end
 end

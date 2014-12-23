@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe Game do
 
@@ -7,7 +7,7 @@ RSpec.describe Game do
   end
 
   it 'respond to some methods' do
-    expect(@game).to respond_to(:player1, :player2, :which_turn)
+    expect(@game).to respond_to(:player1, :player2, :which_turn, :move, :winner?, :status)
   end
 
   describe '#new' do
@@ -90,7 +90,7 @@ RSpec.describe Game do
       expect(@bullet).to be_kind_of(Fixnum)
     end
 
-    it 'the value of the bullet need to meet the reduction to the player' do
+    it ' the value of the bullet need to meet the reduction to the player' do
       result = @game.player1.wall_health + @game.player2.wall_health
       @aux -= @bullet
       expect(result).to eq(@aux)

@@ -25,14 +25,8 @@ class GamesController < ApplicationController
   def update
     who_move = @game.who_move?
     move = @game.move
-    if @game.winner
-      Ranking.create do |record|
-        record.player1 = @game.player1.name
-        record.player2 = @game.player2.name
-        record.winner = @game.winner.name
-        record.winner_reamaining_points = @game.winner.wall_health
-      end
-      notice = "#{@game.winner.name} WON, End up with #{@game.winner.wall_health} wall points."
+    if @game.winner?
+      notice = "#{@game.winner.name} WON, #{@game.winner.wall_health} wall points reamaining."
       redirect_to games_path, notice: notice
     else
       save_game_to_session
@@ -40,7 +34,7 @@ class GamesController < ApplicationController
       redirect_to edit_game_path(1), notice: notice
     end
   end
-  # ---------------
+  # - - - - - - -
   private
   def save_game_to_session
     session[:game] = @game.to_yaml

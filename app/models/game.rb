@@ -31,7 +31,16 @@ class Game
     elsif @player2.wall_health == 0
       @winner = @player1
     end
+    persist_on_ranking if winner?
     bullet
+  end
+
+  def winner?
+    if self.winner
+      true
+    else
+      false
+    end
   end
 
   def who_move?
@@ -44,6 +53,16 @@ class Game
 
   def status
     "#{@player1.status}, #{@player2.status}"
+  end
+
+  private
+  def persist_on_ranking
+    Ranking.create(
+      player1: @player1.name,
+      player2: @player2.name,
+      winner: @winner.name,
+      winner_reamaining_points: @winner.wall_health
+    )
   end
 
 end
