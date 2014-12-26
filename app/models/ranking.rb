@@ -19,6 +19,9 @@ class Ranking < ActiveRecord::Base
 
   validate :winner_was_player
 
+  default_scope -> { order(winner_reamaining_points: :desc) }
+  # scope :name, -> { where "something" }
+
   def winner_was_player
     errors.add(:winner, "is not a player") unless (winner == player1) || (winner == player2)
   end

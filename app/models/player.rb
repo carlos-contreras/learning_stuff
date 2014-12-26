@@ -15,4 +15,12 @@ class Player
   def status
     "#{self.name}: #{self.wall_health}"
   end
+
+  def ==(player)
+    if player.name == @name && player.wall_health == @wall_health
+      true
+    else
+      false
+    end
+  end
 end

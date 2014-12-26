@@ -55,6 +55,14 @@ class Game
     "#{@player1.status}, #{@player2.status}"
   end
 
+  def ==(game)
+    a = game.player1 == @player1
+    b = game.player2 == @player2
+    c = game.turn_counter == @turn_counter
+    d = game.winner == @winner
+    a && b && c && d
+  end
+
   private
   def persist_on_ranking
     Ranking.create(
@@ -64,5 +72,4 @@ class Game
       winner_reamaining_points: @winner.wall_health
     )
   end
-
 end

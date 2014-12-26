@@ -1,16 +1,16 @@
 <% if notice %>
   <div class="alert alert-success" role="alert"> <%= flash[:notice] %> </div>
 <% end %>
-<% if flash[:alert] %> 
-  <div class="alert alert-danger" role="alert"> <%= flash[:alert] %> </div>
+<% if flash[:error] %> 
+  <div class="alert alert-danger" role="alert"> <%= flash[:error] %> </div>
 <% end %>
 
-<h1> Move #<%= @game.turn_counter %> <h1>
-<h3> Current status: [ <%= @game.status %> ] </h3>
-<h3> This is [ <%= @game.who_move? %> ] turn. </h3>
+<h1> Move #<%= @turn_counter %> <h1>
+<h3> Current status: [ <%= @status %> ] </h3>
+<h3> This is [ <%= @who_move %> ] turn. </h3>
 
 <hr>
 
-<%= form_tag('/games/1', method: :patch) do %>
+<%= form_tag('/games/1', method: :put) do %>
   <%= submit_tag('Move', :class => "btn btn-sm btn-primary") %>
 <% end %>
